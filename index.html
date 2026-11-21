@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6f7f4">
+<title>FORM — Fitness Dashboard</title>
+<style>
+:root{--bg:#f6f7f4;--surface:#fff;--ink:#18211d;--muted:#78817b;--line:#e8ebe6;--green:#c9f36b;--green-dark:#24351b;--radius:22px;--shadow:0 12px 35px rgba(26,42,30,.055)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input{font:inherit}.app{max-width:1320px;margin:auto;padding:24px 30px 40px}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:2px;font-size:20px}.brand-mark{width:34px;height:34px;border-radius:11px;background:var(--ink);color:var(--green);display:grid;place-items:center;font-size:19px}.top-right{display:flex;align-items:center;gap:14px}.date{color:var(--muted);font-size:13px}.avatar{width:38px;height:38px;border-radius:50%;background:#e5edda;display:grid;place-items:center;font-weight:800;font-size:13px}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:25px}.sidebar{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 14px;height:fit-content;position:sticky;top:20px}.side-label{font-size:10px;color:#a0a8a1;font-weight:800;letter-spacing:1.5px;padding:8px 12px 12px}.nav{display:flex;align-items:center;gap:12px;padding:12px;border-radius:13px;color:var(--muted);font-size:13px;margin:3px 0}.nav.active{background:#f0f6e8;color:var(--ink);font-weight:750}.nav .ico{width:19px;text-align:center;font-size:16px}.side-card{margin:28px 3px 0;background:var(--ink);color:white;border-radius:17px;padding:16px}.side-card small{color:#aab3aa;font-size:11px}.side-card strong{display:block;font-size:23px;margin:8px 0 4px}.side-card p{font-size:11px;color:#b5beb6;line-height:1.5;margin:0}.main{min-width:0}.welcome{display:flex;justify-content:space-between;align-items:end;margin:3px 0 23px}.eyebrow{font-size:11px;color:var(--muted);letter-spacing:1.4px;font-weight:800;text-transform:uppercase}.welcome h1{font-size:clamp(27px,3vw,38px);letter-spacing:-1.7px;margin:7px 0 0}.welcome h1 span{color:#87917f}.primary{border:0;background:var(--ink);color:white;padding:12px 17px;border-radius:13px;font-size:12px;font-weight:750;cursor:pointer;transition:.2s}.primary:hover{transform:translateY(-2px);background:#344638}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:18px}.stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:17px;min-width:0}.stat-top{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.stat-icon{width:29px;height:29px;border-radius:10px;background:#f2f5ee;display:grid;place-items:center}.stat strong{font-size:25px;letter-spacing:-1px;display:block;margin:12px 0 4px}.stat small{font-size:10px;color:var(--muted)}.positive{color:#5e9b42!important}.content-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.85fr);gap:17px}.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.panel h2{font-size:15px;margin:0;letter-spacing:-.3px}.sub{font-size:11px;color:var(--muted);margin-top:5px}.select{border:1px solid var(--line);border-radius:10px;padding:8px 10px;color:var(--muted);background:white;font-size:11px}.chart-wrap{height:205px;position:relative;padding:10px 0 23px}.chart{height:100%;display:flex;align-items:end;justify-content:space-around;gap:12px;border-bottom:1px solid var(--line);background:repeating-linear-gradient(to bottom,transparent 0,transparent 49px,#f0f2ee 50px)}.bar-group{height:100%;display:flex;align-items:end;gap:5px;position:relative;flex:1;justify-content:center}.bar{width:min(17px,38%);border-radius:6px 6px 2px 2px;background:#e8eee1;transition:height .5s}.bar.mainbar{background:var(--green)}.bar-group.today .bar.mainbar{background:#8fc43d}.day{position:absolute;bottom:-22px;font-size:10px;color:#9aa29b}.legend{display:flex;gap:16px;margin-top:14px;color:var(--muted);font-size:10px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:6px}.dot.gray{background:#e8eee1}.goal{display:flex;align-items:center;gap:18px;padding:4px 0 12px}.ring{width:116px;height:116px;border-radius:50%;background:conic-gradient(#b9e95c 0 72%,#edf1e8 72% 100%);display:grid;place-items:center;flex:none;position:relative}.ring:before{content:"";position:absolute;inset:10px;background:white;border-radius:50%}.ring-inner{position:relative;text-align:center}.ring-inner strong{font-size:25px;display:block;letter-spacing:-1px}.ring-inner span{font-size:10px;color:var(--muted)}.goal-copy strong{font-size:13px}.goal-copy p{font-size:11px;color:var(--muted);line-height:1.5;margin:6px 0}.goal-copy b{font-size:11px}.goal-list{border-top:1px solid var(--line);padding-top:14px;display:grid;gap:12px}.goal-row{display:flex;align-items:center;justify-content:space-between;font-size:11px}.goal-row span:first-child{color:var(--muted)}.goal-row strong{font-size:11px}.bottom-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(270px,.8fr);gap:17px;margin-top:17px}.workout{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}.workout:first-of-type{border-top:0}.workout-icon{width:42px;height:42px;border-radius:13px;background:#f0f5e9;display:grid;place-items:center;font-size:18px}.workout-info{flex:1;min-width:0}.workout-info strong{display:block;font-size:12px}.workout-info small{font-size:10px;color:var(--muted)}.duration{font-size:11px;color:var(--muted);white-space:nowrap}.add-btn{width:30px;height:30px;border:1px solid var(--line);background:white;border-radius:9px;cursor:pointer;font-size:17px}.habit{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line);font-size:11px}.habit input{accent-color:#8fbd47;width:16px;height:16px}.habit span{flex:1}.habit.done span{text-decoration:line-through;color:#9ba39c}.progress-track{height:6px;background:#edf0eb;border-radius:9px;overflow:hidden;margin-top:8px}.progress-fill{height:100%;width:0;background:#a9d94f;border-radius:9px;transition:width .25s}.footer{text-align:center;color:#a1a9a2;font-size:10px;margin-top:26px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#1d2a21;color:white;padding:12px 18px;border-radius:12px;font-size:12px;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:950px){.layout{grid-template-columns:1fr}.sidebar{position:static;display:flex;align-items:center;overflow:auto;padding:8px}.side-label,.side-card{display:none}.nav{white-space:nowrap;margin:0 2px;padding:10px}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.app{padding:17px 14px 28px}.topbar{margin-bottom:23px}.date{display:none}.layout{gap:14px}.sidebar{border-radius:15px}.nav{font-size:11px;gap:7px}.welcome{align-items:start;gap:12px}.welcome h1{font-size:27px}.welcome .primary{padding:10px 12px;font-size:10px;margin-top:12px}.stats{gap:9px}.stat{padding:13px;border-radius:15px}.stat strong{font-size:22px}.content-grid,.bottom-grid{grid-template-columns:1fr;gap:12px}.panel{padding:16px;border-radius:18px}.chart-wrap{height:185px}.goal{justify-content:center}.bottom-grid{margin-top:12px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">↗</div>FORM<span style="font-weight:400;color:#98a198;font-size:10px;letter-spacing:1px"> / FITNESS</span></div>
+    <div class="top-right"><div class="date" id="todayDate"></div><div class="avatar">TV</div></div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="side-label">MENU</div>
+      <div class="nav active"><span class="ico">▦</span> Tổng quan</div>
+      <div class="nav"><span class="ico">◷</span> Lịch tập</div>
+      <div class="nav"><span class="ico">⌁</span> Tiến độ</div>
+      <div class="nav"><span class="ico">♡</span> Sức khỏe</div>
+      <div class="nav"><span class="ico">⚙</span> Cài đặt</div>
+      <div class="side-card"><small>MỤC TIÊU TUẦN</small><strong>4 / 5 buổi</strong><p>Bạn đang tiến gần đến mục tiêu. Tiếp tục giữ nhịp nhé!</p></div>
+    </aside>
+    <main class="main">
+      <section class="welcome">
+        <div><div class="eyebrow">THỨC DẬY & BỨT PHÁ</div><h1>Chào bạn, <span>chiến binh.</span></h1></div>
+        <button class="primary" id="startWorkout">＋ Bắt đầu tập</button>
+      </section>
+      <section class="stats">
+        <div class="stat"><div class="stat-top"><span>Tổng thời gian tập</span><span class="stat-icon">◷</span></div><strong>6.5 <small>giờ</small></strong><small class="positive">↗ 12% so với tuần trước</small></div>
+        <div class="stat"><div class="stat-top"><span>Calo tiêu thụ</span><span class="stat-icon">♨</span></div><strong>2,480</strong><small class="positive">↗ 8% so với tuần trước</small></div>
+        <div class="stat"><div class="stat-top"><span>Buổi tập hoàn thành</span><span class="stat-icon">✓</span></div><strong id="sessionCount">4</strong><small>Trong tuần này</small></div>
+        <div class="stat"><div class="stat-top"><span>Cân nặng hiện tại</span><span class="stat-icon">⌁</span></div><strong>55.0 <small>kg</small></strong><small>Mục tiêu: 60 kg</small></div>
+      </section>
+      <section class="content-grid">
+        <div class="panel">
+          <div class="panel-head"><div><h2>Hoạt động của bạn</h2><div class="sub">Thời lượng vận động trong tuần</div></div><select class="select" id="chartMode"><option value="week">Tuần này</option><option value="last">Tuần trước</option></select></div>
+          <div class="chart-wrap"><div class="chart" id="activityChart"></div></div>
+          <div class="legend"><span><i class="dot"></i>Tuần này</span><span><i class="dot gray"></i>Mục tiêu</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div><h2>Mục tiêu hằng ngày</h2><div class="sub">Tiến độ hôm nay</div></div><span style="font-size:18px">✳</span></div>
+          <div class="goal"><div class="ring"><div class="ring-inner"><strong>72%</strong><span>HOÀN THÀNH</span></div></div><div class="goal-copy"><strong>Bạn làm rất tốt!</strong><p>Chỉ còn một chút nữa là đạt mục tiêu hôm nay.</p><b>720 / 1.000 kcal</b></div></div>
+          <div class="goal-list"><div class="goal-row"><span>Vận động</span><strong>45 / 60 phút</strong></div><div class="goal-row"><span>Số bước chân</span><strong>7.200 / 10.000</strong></div><div class="goal-row"><span>Uống nước</span><strong>1.5 / 2 lít</strong></div></div>
+        </div>
+      </section>
+      <section class="bottom-grid">
+        <div class="panel">
+          <div class="panel-head"><div><h2>Lịch tập hôm nay</h2><div class="sub">Tập trung vào chất lượng, không phải số lượng</div></div><span class="eyebrow">THỨ 2</span></div>
+          <div class="workout"><div class="workout-icon">💪</div><div class="workout-info"><strong>Tập thân trên</strong><small>Ngực · Vai · Tay sau</small></div><span class="duration">25 phút</span><button class="add-btn" aria-label="Hoàn thành bài tập" onclick="completeWorkout(this)">＋</button></div>
+          <div class="workout"><div class="workout-icon">🏃</div><div class="workout-info"><strong>Cardio nhẹ</strong><small>Chạy bộ hoặc nhảy dây</small></div><span class="duration">15 phút</span><button class="add-btn" aria-label="Hoàn thành bài tập" onclick="completeWorkout(this)">＋</button></div>
+          <div class="workout"><div class="workout-icon">🧘</div><div class="workout-info"><strong>Giãn cơ & phục hồi</strong><small>Thả lỏng toàn thân</small></div><span class="duration">10 phút</span><button class="add-btn" aria-label="Hoàn thành bài tập" onclick="completeWorkout(this)">＋</button></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div><h2>Thói quen tốt</h2><div class="sub">Hoàn thành từng việc nhỏ mỗi ngày</div></div><span style="font-size:18px">☘</span></div>
+          <div id="habitList">
+            <label class="habit"><input type="checkbox"><span>Uống đủ nước</span><b>💧</b></label>
+            <label class="habit"><input type="checkbox"><span>Ăn đủ bữa</span><b>🥗</b></label>
+            <label class="habit"><input type="checkbox"><span>Vận động ít nhất 30 phút</span><b>⚡</b></label>
+            <label class="habit"><input type="checkbox"><span>Ngủ đủ giấc</span><b>🌙</b></label>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="habitProgress"></div></div>
+          <div class="sub" id="habitCount" style="text-align:right;margin-top:7px">0 / 4 hoàn thành</div>
+        </div>
+      </section>
+      <div class="footer">FORM FITNESS · XÂY DỰNG PHIÊN BẢN TỐT HƠN MỖI NGÀY</div>
+    </main>
+  </div>
+</div>
+<div class="toast" id="toast">Đã cập nhật!</div>
+<script>
+const $=s=>document.querySelector(s);
+const days=['T2','T3','T4','T5','T6','T7','CN'];
+const week=[42,68,50,82,60,92,38],last=[55,40,72,48,66,75,30];
+function drawChart(mode='week'){
+ const values=mode==='week'?week:last;
+ $('#activityChart').innerHTML=values.map((v,i)=>`<div class="bar-group ${i===5?'today':''}"><div class="bar" style="height:${Math.max(12,v*.65)}%"></div><div class="bar mainbar" style="height:${v}%"></div><span class="day">${days[i]}</span></div>`).join('');
+}
+drawChart();$('#chartMode').addEventListener('change',e=>drawChart(e.target.value));
+$('#todayDate').textContent=new Intl.DateTimeFormat('vi-VN',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date());
+function showToast(message){const t=$('#toast');t.textContent=message;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1900)}
+function completeWorkout(btn){if(btn.dataset.done)return;btn.dataset.done='1';btn.textContent='✓';btn.style.background='#eef6e5';btn.style.color='#5c8c2b';btn.style.borderColor='#dcebc9';$('#sessionCount').textContent=Number($('#sessionCount').textContent)+1;showToast('Tuyệt vời! Đã hoàn thành bài tập.')}
+$('#startWorkout').addEventListener('click',()=>{document.querySelector('.bottom-grid').scrollIntoView({behavior:'smooth'});showToast('Chọn bài tập và bắt đầu nhé!')});
+function updateHabits(){const checks=[...document.querySelectorAll('#habitList input')],done=checks.filter(c=>c.checked).length;$('#habitProgress').style.width=(done/checks.length*100)+'%';$('#habitCount').textContent=`${done} / ${checks.length} hoàn thành`;checks.forEach(c=>c.closest('.habit').classList.toggle('done',c.checked))}
+document.querySelectorAll('#habitList input').forEach(c=>c.addEventListener('change',updateHabits));
+document.querySelectorAll('.nav').forEach(item=>item.addEventListener('click',()=>{document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));item.classList.add('active');showToast('Bạn đang ở mục: '+item.textContent.trim())}));
+</script>
+</body>
+</html>
